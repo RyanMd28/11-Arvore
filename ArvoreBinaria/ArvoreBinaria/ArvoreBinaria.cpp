@@ -39,7 +39,7 @@ int main()
 void menu()
 {
 	int op = 0;
-	while (op != 6) {
+	while (op != 7) {
 		system("cls"); // somente no windows
 		cout << "Menu Arvore";
 		cout << endl << endl;
@@ -177,7 +177,20 @@ void exibirElementosArvore(NO* no)
 
 void buscarElementoArvore(NO* no, int valor)
 {
-	
+	if (no == NULL) {
+		cout << "Nao encontrado. \n";
+	}
+	else if (valor == no->valor) {
+		cout << "Encontrado. \n";
+	}
+	else if (no->valor < valor) {
+		buscarElementoArvore(no->dir, valor);
+	}
+	else {
+		buscarElementoArvore(no->esq, valor);
+	}
+
+
 
 }
 
